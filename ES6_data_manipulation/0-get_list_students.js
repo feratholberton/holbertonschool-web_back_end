@@ -5,5 +5,5 @@ const arrayOfObjects = [
 ];
 
 export default function getListStudents() {
-  console.log(arrayOfObjects);
+  return arrayOfObjects;
 }
