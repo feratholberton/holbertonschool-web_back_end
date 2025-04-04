@@ -3,7 +3,7 @@ function getStudentsByLocation(list, city) {
     return [];
   }
 
-  return list.filter(student => student.location === city);
+  return list.filter((student) => student.location === city);
 }
 
 export default getStudentsByLocation;
