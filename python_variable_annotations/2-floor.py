@@ -3,6 +3,6 @@
 import math
 
 
-def concat(n: float) -> int:
+def floor(n: float) -> int:
     """Returns an int"""
     return math.floor(n)
