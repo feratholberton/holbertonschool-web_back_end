@@ -1,0 +1,13 @@
+services:
+  no-sql:
+    image: mongo:7.0.23
+    restart: always
+    container_name: no-sql
+    ports:
+      - 27017:27017
+    volumes:
+      - no-sql-data:/data/db
+      - ./:/no-sql
+volumes:
+  no-sql-data:
+    driver: local
