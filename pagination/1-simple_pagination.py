@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+"""Function index_range, takes two integer arguments page and page_size"""
 import csv
 import math
 from typing import List
-"""Function index_range, takes two integer arguments page and page_size"""
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -17,8 +17,7 @@ def index_range(page: int, page_size: int) -> tuple:
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
-    """
+    """Server class to paginate a database of popular baby names."""
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
