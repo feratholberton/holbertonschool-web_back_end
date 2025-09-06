@@ -8,7 +8,9 @@ function countStudents(path) {
     const studentsLines = usefulLines.splice(1);
     
     const students = [];
-    studentsLines.forEach((student) => students.push(student.split(',')))
+    studentsLines.forEach((student) => students.push(student.split(',')));
+
+    console.log(`Number of students: ${students.length}`);
     
     const fields = [];
     students.forEach((field) => fields.push(field[3]));
@@ -18,14 +20,14 @@ function countStudents(path) {
       const studentInField = [];
       students.forEach((student) => {
         if (student[3] == value) {
-          studentInField.push(student[0])
+          studentInField.push(student[0]);
         }
       });
 
-      console.log(`Number of students in ${value}: ${studentInField.length}. List: ${studentInField.join(', ')}`)
+      console.log(`Number of students in ${value}: ${studentInField.length}. List: ${studentInField.join(', ')}`);
     });
   } catch(error) {
-    console.log('Cannot load the database', error.message)
+    console.log('Cannot load the database');
   }
 }
 
