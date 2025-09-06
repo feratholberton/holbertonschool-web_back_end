@@ -1,25 +1,32 @@
-const { createServer } = require('http');
-const countStudents = require('./2-read_file');
+const http = require('http');
+const readDb = require('./5-read_db');
 
-const hostname = 'localhost';
-const port = 1245;
+const app = http.createServer((req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
 
-const app = createServer((req, res) => {
-  
   if (req.url === '/') {
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
     res.end('Hello Holberton School!');
+    return;
   }
 
   if (req.url === '/students') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    const students = countStudents(process.argv[2]);
-    res.end(students);
+    const header = 'This is the list of our students\n';
+    readDb(process.argv[2])
+      .then((body) => {
+        res.statusCode = 200;
+        res.end(header + body);
+      })
+      .catch(() => {
+        res.statusCode = 200;
+        res.end(header + 'Cannot load the database');
+      });
+    return;
   }
+
+  res.statusCode = 404;
+  res.end('Not found');
 });
 
-app.listen(port, hostname);
-
+app.listen(1245);
 module.exports = app;
