@@ -9,7 +9,6 @@ function countStudents(path) {
 
     const students = [];
     studentsLines.forEach((student) => students.push(student.split(',')));
-
     console.log(`Number of students: ${students.length}`);
 
     const fields = [];
@@ -19,11 +18,10 @@ function countStudents(path) {
     uniqueFields.forEach((value) => {
       const studentInField = [];
       students.forEach((student) => {
-        if (student[3] == value) {
+        if (student[3] === value) {
           studentInField.push(student[0]);
         }
       });
-
       console.log(`Number of students in ${value}: ${studentInField.length}. List: ${studentInField.join(', ')}`);
     });
   } catch(error) {
