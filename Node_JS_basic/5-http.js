@@ -19,7 +19,7 @@ const app = http.createServer((req, res) => {
       })
       .catch(() => {
         res.statusCode = 200;
-        res.end(header + 'Cannot load the database');
+        res.end(`${header}Cannot load the database`);
       });
     return;
   }
